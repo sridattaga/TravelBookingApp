@@ -1,13 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using TravelBooking.Web.Data;
 
-[ApiController]
-[Route("api/cars")]
-public class CarsController : ControllerBase
+namespace TravelBooking.Web.Controllers
 {
-    private readonly AppDbContext _db;
-    public CarsController(AppDbContext db) => _db = db;
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CarsController : ControllerBase
+    {
+        private readonly AppDbContext _context;
 
-    [HttpGet]
-    public IActionResult Get() => Ok(_db.Cars.ToList());
+        public CarsController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public IActionResult GetCars()
+        {
+            return Ok(_context.Cars.ToList());
+        }
+    }
 }
