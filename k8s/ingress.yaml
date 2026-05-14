@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: travelbooking-ingress
+spec:
+  rules:
+  - host: travel.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: travelbooking-svc
+            port:
+              number: 80
