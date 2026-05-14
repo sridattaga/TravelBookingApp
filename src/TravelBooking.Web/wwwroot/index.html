@@ -1,0 +1,12 @@
+<h2>Travel Booking App</h2>
+<button onclick="loadHotels()">Load Hotels</button>
+<ul id="result"></ul>
+
+<script>
+async function loadHotels() {
+  const res = await fetch('/api/hotels');
+  const data = await res.json();
+  document.getElementById('result').innerHTML =
+    data.map(h => `<li>${h.name} - ₹${h.pricePerNight}</li>`).join('');
+}
+</script>
