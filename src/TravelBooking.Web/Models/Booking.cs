@@ -1,9 +1,11 @@
-namespace TravelBooking.Web.Models;
+using System;
 
-public class Booking
+namespace TravelBooking.Web.Models
 {
-    public int Id { get; set; }
-    public string Type { get; set; }
-    public int ItemId { get; set; }
-    public DateTime Date { get; set; }
+    public class Booking
+    {
+        public int Id { get; set; }
+        public DateTime BookingDate { get; set; }
+        public string UserName { get; set; }
+    }
 }
