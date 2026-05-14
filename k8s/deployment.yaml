@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travelbooking
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: travelbooking
+  template:
+    metadata:
+      labels:
+        app: travelbooking
+    spec:
+      containers:
+      - name: app
+        image: nexus.local/travelbooking:1.0
+        ports:
+        - containerPort: 80
