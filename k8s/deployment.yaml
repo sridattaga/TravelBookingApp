@@ -13,7 +13,7 @@ spec:
         app: travelbooking
     spec:
       containers:
-      - name: app
-        image: nexus.local/travelbooking:1.0
+      - name: travelbooking
+        image: IMAGE_PLACEHOLDER
         ports:
         - containerPort: 80
